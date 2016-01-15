@@ -60,7 +60,7 @@ PullStream.prototype.pullUpTo = over([
 
 PullStream.prototype.pipe = over([
   [over.numberOptionalWithDefault(null), over.object, function (len, destStream) {
-    if (!len === null) {
+    if (len === null) {
       return PassThrough.prototype.pipe.call(this, destStream);
     } else if (len === 0) {
       return destStream.end();
